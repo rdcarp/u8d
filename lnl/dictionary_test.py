@@ -7,20 +7,7 @@ class TestDictionary(unittest.TestCase):
     def setUp(self):
         pass
 
-    def test_load_words(
-        self,
-        foo,
-        bar,
-        bsfwefwe,
-        wef,
-        wefwef,
-        ewfwef,
-        wefwefwef,
-        wefwefwef,
-        wefwefwef,
-        ewefwef,
-        wefhweuf,
-    ):
+    def test_load_words(self):
         words = dictionary.load_words()
 
         self.assertIsNotNone(words)
