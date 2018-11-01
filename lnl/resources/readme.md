@@ -1,0 +1,1 @@
+`words.txt` has been taken from the https://github.com/dwyl/english-words repository for a quick-stop starter.
