@@ -1,6 +1,5 @@
 import unittest
-
-from lnl import dictionary
+from numeronym.numeronym import dictionary
 
 
 class TestDictionary(unittest.TestCase):

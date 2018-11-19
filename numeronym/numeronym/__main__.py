@@ -1,7 +1,7 @@
 import fire
 import re
-from lnl import dictionary
-from lnl.p4r import P4r
+from numeronym import dictionary
+from numeronym.p4r import P4r
 
 
 def _get_parser():
