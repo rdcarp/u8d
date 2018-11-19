@@ -2,11 +2,12 @@
     "python.unitTest.unittestArgs": [
         "-v",
         "-s",
-        ".",
+        "./numeronym/tests",
         "-p",
         "*_test.py"
     ],
     "python.unitTest.pyTestEnabled": false,
+    "python.unitTest.autoTestDiscoverOnSaveEnabled": true,
     "python.unitTest.nosetestsEnabled": false,
     "python.unitTest.unittestEnabled": true,
     "python.linting.pylintEnabled": true,
