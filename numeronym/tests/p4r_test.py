@@ -1,5 +1,5 @@
 import unittest
-from lnl.p4r import P4r
+from numeronym.p4r import P4r
 
 MOCK_DICTIONARY = ("never", "gonna", "give", "you", "up", "gave", "gunna")
 
