@@ -32,6 +32,16 @@ class TestP4r(unittest.TestCase):
 
         self.assertEqual(expected, actual, "Word shortening did not match")
 
+    def test_shortening_short_words(self):
+        word = "if"
+        expected = "i0f"
+
+        actual = self.parser.shortify(word)
+
+        self.assertEqual(expected, actual)
+
+    def test_symbols_in_words(self):
+        
 
 if __name__ == "__main__":
     unittest.main()

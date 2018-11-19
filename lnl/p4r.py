@@ -1,3 +1,4 @@
+from lnl.graphs import ShortyGraph
 import random
 import re
 
@@ -5,6 +6,7 @@ import re
 class P4r:
     def __init__(self, word_list):
         self.word_list = word_list
+        self.graph = ShortyGraph()
 
     def _make_regex(self, _in):
         start = _in[0]
@@ -51,3 +53,9 @@ class P4r:
             shorties.append(f"{start}{n}{end}")
 
         return shorties
+
+    def load_graph(self, *words):
+        self.graph.load_words(*words)
+
+    def graph_longify(self, shorty):
+        return self.graph.lookup_shorty(shorty)

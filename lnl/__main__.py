@@ -7,6 +7,7 @@ from lnl.p4r import P4r
 def _get_parser():
     d = dictionary.load_words()
     p4r = P4r(d)
+    p4r.load_graph(*d)
 
     return p4r
 
@@ -44,6 +45,30 @@ def cludge(sentence):
     print(" ".join([p4r.longify_random(s) for s in shorties]))
 
 
+def uniques():
+    p4r = _get_parser()
+    uniques = []
+    last_code = None
+
+    for w in p4r.word_list:
+        code = p4r.shortify(w)
+        if code == last_code:
+            break
+
+        last_code = code
+        if len(p4r.longify_list(code)) == 1:
+            uniques.append(w)
+
+    print(uniques)
+
+
+def longify_list_graph(shorty):
+    p = _get_parser()
+    l = p.graph_longify(shorty)
+
+    print(l)
+
+
 def main():
     fire.Fire(
         {
@@ -52,6 +77,8 @@ def main():
             "shortify": shortify,
             "shortify_sentence": shortify_sentence,
             "cludge": cludge,
+            "uniques": uniques,
+            "longify_list_graph": longify_list_graph,
         }
     )
 
