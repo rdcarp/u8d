@@ -5,13 +5,14 @@ name = "pypi"
 
 [packages]
 fire = "*"
-cookiecutter = "*"
 
 [dev-packages]
+cookiecutter = "*"
 black = "*"
 cookiecutter = "*"
 poetry = "*"
 bumpversion = "*"
+rope = "*"
 
 [requires]
 python_version = "3.6"

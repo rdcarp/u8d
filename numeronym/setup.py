@@ -14,7 +14,7 @@ def read(filename):
 
 
 setup(
-    name="numeronym",
+    name="numeronyms",
     version="0.1.0",
     url="https://github.com/rdcarp/u8d",
     license='MIT',
