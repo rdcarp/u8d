@@ -2,7 +2,7 @@ import random
 import re
 
 
-class P4r:
+class Parser:
     def __init__(self, word_list):
         self.word_list = word_list
 

@@ -1,12 +1,12 @@
 import unittest
-from numeronym.numeronym.p4r import P4r
+from numeronym.numeronym.parser import Parser
 
 MOCK_DICTIONARY = ("never", "gonna", "give", "you", "up", "gave", "gunna")
 
 
 class TestP4r(unittest.TestCase):
     def setUp(self):
-        self.parser = P4r(MOCK_DICTIONARY)
+        self.parser = Parser(MOCK_DICTIONARY)
 
     def test_expansion_length(self):
         word = self.parser.longify_random("g3a")

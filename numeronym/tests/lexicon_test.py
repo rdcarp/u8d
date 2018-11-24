@@ -1,5 +1,5 @@
 import unittest
-from numeronym.numeronym import dictionary
+from numeronym.numeronym import lexicon
 
 
 class TestDictionary(unittest.TestCase):
@@ -7,7 +7,7 @@ class TestDictionary(unittest.TestCase):
         pass
 
     def test_load_words(self):
-        words = dictionary.load_words()
+        words = lexicon.load_words()
 
         self.assertIsNotNone(words)
         self.assertGreater(len(words), 0)
