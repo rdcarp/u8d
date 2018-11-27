@@ -17,7 +17,6 @@ jobs:
           name: install dependencies
           command: |
             sudo pipenv --python 3.6
-            .venv/bin/activate
             pipenv install
             pipenv install --dev
       # Step 3: run linter and tests
