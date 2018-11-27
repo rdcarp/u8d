@@ -9,10 +9,13 @@ fire = "*"
 [dev-packages]
 cookiecutter = "*"
 black = "*"
-cookiecutter = "*"
 poetry = "*"
 bumpversion = "*"
 rope = "*"
+twine = "*"
+flake8 = "*"
+pytest = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.6"
