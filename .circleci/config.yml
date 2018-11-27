@@ -14,6 +14,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
+            export PIPENV_VENV_IN_PROJECT=1
             pipenv --python 3.6
             .venv/bin/activate
             pipenv install
