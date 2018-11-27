@@ -36,8 +36,5 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
     ],
-    console_scripts": [
-            "numeronyms=numeronums.__main__:main",
-        ]
- 
+    console_scripts=["numeronyms=numeronums.__main__:main"],
 )
