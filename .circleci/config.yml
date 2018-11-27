@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.7
+      - image: circleci/python:3.6
 
     working_directory: ~/repo
 
@@ -14,7 +14,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            pipenv --python 3.7
+            pipenv --python 3.6
             .venv/bin/activate
             pipenv install
             pipenv install --dev
