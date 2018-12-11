@@ -2,7 +2,7 @@ import unittest
 from numeronym.numeronym import lexicon
 
 
-class TestDictionary(unittest.TestCase):
+class TestLexicon(unittest.TestCase):
     def setUp(self):
         pass
 

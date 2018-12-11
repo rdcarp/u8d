@@ -4,7 +4,7 @@ from numeronym.numeronym.parser import Parser
 MOCK_DICTIONARY = ("never", "gonna", "give", "you", "up", "gave", "gunna")
 
 
-class TestP4r(unittest.TestCase):
+class TestParser(unittest.TestCase):
     def setUp(self):
         self.parser = Parser(MOCK_DICTIONARY)
 
