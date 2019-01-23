@@ -2,9 +2,9 @@ import argparse
 import re
 import sys
 
-from numeronym.lexicon import load_words
-from numeronym.parser import Parser
-from numeronym import __version__
+from numeronym.numeronym.lexicon import load_words
+from numeronym.numeronym.parser import Parser
+from numeronym.numeronym import __version__
 
 
 def _get_parser():
@@ -14,34 +14,42 @@ def _get_parser():
     return parser
 
 
-def longify_randomly(short):
+def longify_randomly(args):
+    assert "shorties" in args
+
     parser = _get_parser()
 
     longies = []
-    for shortie in short.split(" "):
+    for shortie in args.shorties.split(" "):
         longies.append(parser.longify_random(shortie))
 
     print(" ".join(longies))
 
 
-def longify_list(short_form, n):
+def longify_list(args):
+    assert "short" in args
+    assert "n" in args
     parser = _get_parser()
 
-    print(parser.longify_list(short_form)[0 : n + 1])
+    print(parser.longify_list(args.short)[0 : args.n + 1])
 
 
-def shortify(word):
+def shortify(args):
     parser = _get_parser()
 
-    print(parser.shortify(word))
+    print(parser.shortify(args.word))
 
 
-def shortify_sentence(sentence):
+def shortify_sentence(args):
+    assert "sentence" in args
+
     parser = _get_parser()
-    print(" ".join(parser.shortify_sentence(sentence)))
+    print(" ".join(parser.shortify_sentence(args.sentence)))
 
 
-def cludge(sentence):
+def cludge(args):
+    assert "sentence" in args
+
     parser = _get_parser()
     shorties = parser.shortify_sentence(sentence)
     print(" ".join([parser.longify_random(s) for s in shorties]))
@@ -52,17 +60,47 @@ def setup_args(args):
     parser.add_argument("--version", action="version", version=__version__)
 
     subparsers = parser.add_subparsers()
+    subparsers.required = False
 
-    parser_cludge = subparsers.add_parser("cludge")
-    parser_cludge.add_argument(
-        "-s", "--sentence", help="The starting sentence", required=True
+    # 'cludge'
+    cludge_parser = subparsers.add_parser("cludge")
+    cludge_parser.set_defaults(func=cludge)
+    cludge_parser.add_argument(dest="sentence", help="The starting sentence.")
+
+    # 'shortify'
+    shortify_parser = subparsers.add_parser("shortify")
+    shortify_parser.set_defaults(func=shortify)
+    shortify_parser.add_argument(dest="word", help="A 'long' word.")
+
+    # 'shortify' sentence
+    shortify_sentence_parser = subparsers.add_parser("shortify_sentence")
+    shortify_sentence_parser.set_defaults(func=shortify_sentence)
+    shortify_sentence_parser.add_argument(dest="sentence", help="The original sentence.")
+
+    # 'longify' randomly
+    longify_randonly_parser = subparsers.add_parser("longify_randomly")
+    longify_randonly_parser.set_defaults(func=longify_randomly)
+    longify_randonly_parser.add_argument(
+        dest="shorties", help="A shortened form of a word or list of shortened forms."
     )
-    parser_cludge.set_defaults(func=cludge)
+
+    longify_list_parser = subparsers.add_parser("longify_list")
+    longify_list_parser.set_defaults(func=longify_list)
+    longify_list_parser.add_argument(dest="short", help="The shortened form of a word.")
+    longify_list_parser.add_argument(
+        "--number",
+        "-n",
+        dest="n",
+        type=int,
+        required=False,
+        help="The maximum number of suggestions to make.",
+        default="5",
+    )
 
     parsed_args = parser.parse_args(args)
-    parsed_args.func(parsed_args.sentence)
+    print(parsed_args)
+    parsed_args.func(parsed_args)
 
 
 if __name__ == "__main__":
-    # setup_args(sys.argv[1:])
-    setup_args(("cludge", "-s", "the cat shat on the mat"))
+    setup_args(sys.argv[1:])
