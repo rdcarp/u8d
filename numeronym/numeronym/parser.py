@@ -3,6 +3,8 @@ import re
 
 
 class Parser:
+    MIN_SHORTIFIED_WORD_LENGTH = 3
+
     def __init__(self, word_list):
         self.word_list = word_list
 
@@ -33,6 +35,9 @@ class Parser:
         return words
 
     def shortify(self, word):
+        if len(word) < Parser.MIN_SHORTIFIED_WORD_LENGTH:
+            return word
+
         start = word[0]
         end = word[-1]
         n = len(word) - 2
