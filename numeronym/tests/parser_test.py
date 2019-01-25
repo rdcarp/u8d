@@ -32,6 +32,15 @@ class TestParser(unittest.TestCase):
 
         self.assertEqual(expected, actual, "Word shortening did not match")
 
+    def test_very_short_words_arent_parsed(self):
+        words = ["I", "am", "in", "EU"]
+
+        for word in words:
+            expected = word
+            actual = self.parser.shortify(word)
+
+            self.assertEquals(expected, actual, "Very short work did not parse correctly")
+
 
 if __name__ == "__main__":
     unittest.main()

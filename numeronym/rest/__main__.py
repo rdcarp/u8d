@@ -1,4 +1,9 @@
+"""
+REST API access to numeronym features.
+"""
+
 from bottle import route, run, template
+
 from numeronym.numeronym.lexicon import load_words
 from numeronym.numeronym.parser import Parser
 
@@ -40,5 +45,6 @@ class NumeronymRest:
         run(host="localhost", port=8086)
 
 
-app = NumeronymRest()
-app.start()
+if __name__ == "__main__":
+    app = NumeronymRest()
+    app.start()
