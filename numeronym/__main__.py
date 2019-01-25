@@ -98,8 +98,12 @@ def setup_args(args):
     )
 
     parsed_args = parser.parse_args(args)
-    print(parsed_args)
-    parsed_args.func(parsed_args)
+
+    if hasattr(parsed_args, "func"):
+        return parsed_args.func(parsed_args)
+    else:
+        parser.print_help()
+        return
 
 
 if __name__ == "__main__":
