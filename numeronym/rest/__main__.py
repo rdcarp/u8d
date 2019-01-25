@@ -15,6 +15,7 @@ class NumeronymRest:
             "maps": [
                 {"url": "/cludge", "verbs": ["GET"]},
                 {"url": "/shortify", "verbs": ["GET"]},
+                {"url": "/shortify_sentence", "verbs": ["GET"]},
                 {"url": "/longify", "verbs": ["GET"]},
             ]
         }
@@ -27,7 +28,14 @@ class NumeronymRest:
 
         return {"original": sentence, "result": result}
 
-    @route("/api/shortify/<sentence>")
+    @route("/api/shortify/<word>")
+    def v1_shortify(word):
+        p = Parser(load_words())
+        result = p.shortify(word)
+
+        return {"original": sentence, "result": result}
+
+    @route("/api/shortify_sentence/<sentence>")
     def v1_shortify(sentence):
         p = Parser(load_words())
         result = p.shortify_sentence(sentence)
@@ -40,6 +48,13 @@ class NumeronymRest:
         result = p.longify_random(shorties)
 
         return {"original": shorties, "result": result}
+
+    @route("/api/longify_suggestions/<shortie>")
+    def v1_longify(shortie):
+        p = Parser(load_words())
+        result = p.longify_list(shortie)
+
+        return {"original": shortie, "result": result}
 
     def start(self):
         run(host="localhost", port=8086)
