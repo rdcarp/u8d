@@ -23,7 +23,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            pwd
+            cd numeronym
             ls
             sudo pipenv run "flake8 numeronym --exclude=numeronym/resources/* --statistics"
             sudo pipenv run "pytest -v --cov=numeronym"
