@@ -12,8 +12,8 @@ jobs:
     steps:
       # Step 1: obtain repo from GitHub
       - checkout
-      - run: sudo chown -R circleci:circleci /usr/local/bin
-      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
+      # - run: sudo chown -R circleci:circleci /usr/local/bin
+      # - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
       # - restore_cache:
       # # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
       #     key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
@@ -23,8 +23,8 @@ jobs:
           command: |
             # sudo pipenv --python 3.6
             # sudo pipenv install --skip-lock
-            sudo pipenv install --skip-lock --dev
-            sudo pipenv --venv
+            pipenv install --skip-lock --dev
+            pipenv --venv
       # - save_cache: # cache Python dependencies using checksum of Pipfile as the cache-key
       #     key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       #     paths:
@@ -37,7 +37,7 @@ jobs:
           command: |
             pwd
             ls
-            sudo ls .venv/bin
+            ls .venv/bin
             # sudo pipenv run "flake8 numeronym --exclude=numeronym/resources/* --statistics"
             # sudo pipenv run "pytest -v --cov=numeronym"
-            sudo pipenv run "pytest -s . -p '*_test.py'"
+            pipenv run "pytest -s . -p '*_test.py'"
