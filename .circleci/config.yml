@@ -24,7 +24,7 @@ jobs:
             # sudo pipenv --python 3.6
             # sudo pipenv install --skip-lock
             sudo pipenv install --skip-lock --dev
-            pipenv --venv
+            sudo pipenv --venv
       # - save_cache: # cache Python dependencies using checksum of Pipfile as the cache-key
       #     key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       #     paths:
