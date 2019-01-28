@@ -40,4 +40,4 @@ jobs:
             ls .venv/bin
             # sudo pipenv run "flake8 numeronym --exclude=numeronym/resources/* --statistics"
             # sudo pipenv run "pytest -v --cov=numeronym"
-            pipenv run "pytest -s . -p '*_test.py'"
+            pipenv run pytest -s . -p "*_test.py"
