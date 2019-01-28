@@ -21,9 +21,10 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            sudo pipenv --python 3.6
+            # sudo pipenv --python 3.6
             pipenv install --skip-lock
             pipenv install --skip-lock --dev
+            pipenv --venv
       # - save_cache: # cache Python dependencies using checksum of Pipfile as the cache-key
       #     key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       #     paths:
@@ -39,4 +40,4 @@ jobs:
             ls .venv/scripts
             # sudo pipenv run "flake8 numeronym --exclude=numeronym/resources/* --statistics"
             # sudo pipenv run "pytest -v --cov=numeronym"
-            sudo pipenv run "pytest -s . -p '*_test.py'"
+            pipenv run "pytest -s . -p '*_test.py'"
