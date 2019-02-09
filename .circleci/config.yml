@@ -37,7 +37,8 @@ jobs:
           command: |
             pwd
             ls
-            ls .venv/bin
+            ls numeronyms/
+            ls numeronyms/resources
             # sudo pipenv run "flake8 numeronym --exclude=numeronym/resources/* --statistics"
             # sudo pipenv run "pytest -v --cov=numeronym"
             # pipenv run python -m unittest
