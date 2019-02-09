@@ -35,12 +35,6 @@ jobs:
       - run:
           name: run tests
           command: |
-            pwd
-            ls
-            ls numeronyms/
-            ls numeronyms/resources
-            # sudo pipenv run "flake8 numeronym --exclude=numeronym/resources/* --statistics"
-            # sudo pipenv run "pytest -v --cov=numeronym"
             pipenv run python -m unittest
             pipenv run pytest
-            pipenv run pytest -v --cov=./numeronyms
+            pipenv run pytest -v --cov=./core
