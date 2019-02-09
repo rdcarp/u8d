@@ -1,6 +1,7 @@
 from pathlib import Path
 
-WORDS_FILE = Path(__file__) / "../resources/words.txt"
+
+WORDS_FILE = Path("numeronyms/resources/words.txt")
 
 
 def load_words():
