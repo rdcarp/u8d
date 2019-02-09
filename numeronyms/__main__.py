@@ -2,9 +2,9 @@ import argparse
 import re
 import sys
 
-from numeronym.numeronym.lexicon import load_words
-from numeronym.numeronym.parser import Parser
-from numeronym.numeronym import __version__
+from .lexicon import load_words
+from .parser import Parser
+from . import __version__
 
 
 def _get_parser():
@@ -51,7 +51,7 @@ def cludge(args):
     assert "sentence" in args
 
     parser = _get_parser()
-    shorties = parser.shortify_sentence(sentence)
+    shorties = parser.shortify_sentence(args.sentence)
     print(" ".join([parser.longify_random(s) for s in shorties]))
 
 
@@ -84,6 +84,7 @@ def setup_args(args):
         dest="shorties", help="A shortened form of a word or list of shortened forms."
     )
 
+    # 'longify' list
     longify_list_parser = subparsers.add_parser("longify_list")
     longify_list_parser.set_defaults(func=longify_list)
     longify_list_parser.add_argument(dest="short", help="The shortened form of a word.")
