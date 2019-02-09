@@ -1,5 +1,5 @@
 import unittest
-from numeronym.numeronym.parser import Parser
+from numeronyms.parser import Parser
 
 MOCK_DICTIONARY = ("never", "gonna", "give", "you", "up", "gave", "gunna")
 
@@ -39,7 +39,7 @@ class TestParser(unittest.TestCase):
             expected = word
             actual = self.parser.shortify(word)
 
-            self.assertEquals(expected, actual, "Very short work did not parse correctly")
+            self.assertEqual(expected, actual, "Very short work did not parse correctly")
 
 
 if __name__ == "__main__":
