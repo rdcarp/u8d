@@ -1,5 +1,5 @@
 import unittest
-from numeronyms.parser import Parser
+from core.parser import Parser
 
 MOCK_DICTIONARY = ("never", "gonna", "give", "you", "up", "gave", "gunna")
 

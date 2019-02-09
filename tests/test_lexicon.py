@@ -1,5 +1,5 @@
 import unittest
-from numeronyms import lexicon
+from core import lexicon
 
 
 class TestLexicon(unittest.TestCase):
