@@ -13,8 +13,10 @@ bumpversion = "*"
 rope = "*"
 twine = "*"
 flake8 = "*"
+pep8 = "*"
 pytest = "*"
 pytest-cov = "*"
+pydocstyle = "*"
 
 [requires]
 python_version = "3.6"
