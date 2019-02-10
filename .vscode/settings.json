@@ -1,11 +1,7 @@
 {
-    "python.unitTest.pyTestEnabled": false,
-    "python.unitTest.autoTestDiscoverOnSaveEnabled": true,
-    "python.unitTest.nosetestsEnabled": false,
-    "python.unitTest.unittestEnabled": true,
-    "python.linting.pylintEnabled": true,
-    "python.linting.pep8Enabled": false,
-    "python.linting.enabled": false,
+    "python.linting.pydocstyleEnabled": true,
+    "python.linting.flake8Enabled": false,
+    "python.linting.enabled": true,
     "files.autoSave": "afterDelay",
     "python.formatting.provider": "black",
     "python.formatting.blackPath": "./.venv/Scripts/black.exe",
@@ -14,5 +10,8 @@
         "90"
     ],
     "editor.formatOnSave": true,
-    "python.pythonPath": ".venv\\Scripts\\python.exe"
+    "python.pythonPath": ".venv\\Scripts\\python.exe",
+    "python.unitTest.unittestEnabled": true,
+    "python.unitTest.pyTestEnabled": false,
+    "python.unitTest.nosetestsEnabled": false,
 }
