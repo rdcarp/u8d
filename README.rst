@@ -2,7 +2,7 @@ numeronyms
 ==========
 
 .. image:: https://img.shields.io/pypi/v/numeronyms.svg
-    :target: https://test.pypi.python.org/pypi/numeronyms
+    :target: https://test.pypi.org/pypi/numeronyms
     :alt: Latest PyPI version
 
 .. image:: https://circleci.com/gh/rdcarp/numeronyms/tree/master.svg?style=svg
