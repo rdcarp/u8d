@@ -33,10 +33,17 @@ Requirements
 Compatibility
 -------------
 
+* None
+
 Licence
 -------
+
+See `LICENSE <LICENSE>`_.
 
 Authors
 -------
 
-`numeronyms` was written by `Richard Carp <richard@mylittlefamily.co.uk>`_.
+:Authors:
+    Richard (rdcarp) Carp
+
+:Version: 0.1.0
